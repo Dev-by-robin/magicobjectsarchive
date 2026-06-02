@@ -343,13 +343,13 @@ a-scene {
 
 .ar-object-naam {
   font-family: 'Nosifer', cursive;
-  font-size: 25px;
+  font-size: 27px;
   color: var(--tekst);
   text-shadow: 0 0 15px rgba(230,50,50,0.4);
 }
 
 .ar-object-sub {
-  font-size: 11px;
+  font-size: 13px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--tekst-zacht);
@@ -359,7 +359,7 @@ a-scene {
 .risico-badge {
   display: inline-block;
   padding: 3px 8px;
-  font-size: 11px;
+  font-size: 13px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   font-weight: 600;
@@ -371,7 +371,7 @@ a-scene {
 .risico-laag  { background-color: rgba(149,97,208,0.15); color: #9561D0; border-color: rgba(149,97,208,0.3); }
 
 .ar-beschrijving {
-  font-size: 14px;
+  font-size: 16px;
   color: var(--tekst-zacht);
   line-height: 1.7;
   margin-top: 10px;
@@ -384,7 +384,7 @@ a-scene {
 }
 
 .ar-detail-label {
-  font-size: 11px;
+  font-size: 13px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--paars);
@@ -392,7 +392,7 @@ a-scene {
 }
 
 .ar-detail-waarde {
-  font-size: 14px;
+  font-size: 16px;
   color: var(--tekst-zacht);
 }
 
@@ -404,7 +404,7 @@ a-scene {
 }
 
 .ar-incident-label {
-  font-size: 11px;
+  font-size: 13px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--goud);
@@ -412,7 +412,7 @@ a-scene {
 }
 
 .ar-incident-tekst {
-  font-size: 12px;
+  font-size: 14px;
   color: var(--tekst-zacht);
   line-height: 1.6;
 }
@@ -426,7 +426,7 @@ a-scene {
 }
 
 .ar-waarschuwing-titel {
-  font-size: 11px;
+  font-size: 13px;
   letter-spacing: 0.2em;
   color: var(--rood);
   text-transform: uppercase;
@@ -435,7 +435,7 @@ a-scene {
 }
 
 .ar-waarschuwing-tekst {
-  font-size: 12px;
+  font-size: 14px;
   color: #cc8080;
   line-height: 1.6;
 }
