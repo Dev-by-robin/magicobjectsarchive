@@ -16,7 +16,7 @@
         }
       ],
       waarschuwing: 'Het is nog niet volledig onderzocht of herinneringen of bewustzijn van Isaac Night nog aanwezig zijn binnen het object.',
-      afbeelding: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=600&q=80'
+      afbeelding: 'img/thing-image.jpg'
     },
     {
       id: 'crystal-ball',
@@ -34,7 +34,7 @@
         }
       ],
       waarschuwing: 'Gebruik van de Crystal Ball tijdens psychische uitputting wordt afgeraden. Dit kan leiden tot aanvallen en een verdere verslechtering van de mentale toestand van de gebruiker.',
-      afbeelding: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=600&q=80'
+      afbeelding: 'img/crystal-ball-image.jpg'
     }
   ];
 
