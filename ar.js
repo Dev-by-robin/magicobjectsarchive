@@ -103,11 +103,11 @@ document.querySelector('a-scene').addEventListener('loaded', function() {
 
   var camera = document.querySelector('[camera]');
 
-  // raycaster-intersection vuurt als de raycaster een .clickable element raakt
+  var gehovenObject = null;
+  var hint = document.getElementById('ar-tik-hint');
+
   camera.addEventListener('raycaster-intersection', function(evt) {
     var geraakt = evt.detail.els[0];
-
-    // Loop omhoog in de DOM om de parent object (#obj-thing of #obj-crystal) te vinden
     var objectId = null;
     var el = geraakt;
     while (el) {
@@ -115,19 +115,20 @@ document.querySelector('a-scene').addEventListener('loaded', function() {
       if (el.id === 'obj-crystal') { objectId = 'crystal-ball'; break; }
       el = el.parentElement;
     }
-
     if (!objectId) return;
-
-    // 300ms debounce – voorkomt flikkering bij snel bewegen
-    clearTimeout(toonTimer);
-    toonTimer = setTimeout(function() {
-      toonPaneel(objectId);
-    }, 300);
+    gehovenObject = objectId;
+    hint.style.display = 'block';
   });
 
   camera.addEventListener('raycaster-intersection-cleared', function() {
-    clearTimeout(toonTimer);
-    // Paneel blijft open zodat de gebruiker het kan lezen
+    gehovenObject = null;
+    hint.style.display = 'none';
+  });
+
+  document.querySelector('a-scene').addEventListener('click', function() {
+    if (gehovenObject && document.getElementById('ar-paneel').style.display === 'none') {
+      toonPaneel(gehovenObject);
+    }
   });
 
   // Object meegegeven via URL (?object=thing)

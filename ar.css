@@ -246,6 +246,27 @@ a-scene {
   color: var(--tekst);
 }
 
+/* Tik-hint */
+#ar-tik-hint {
+  position: absolute;
+  bottom: 175px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--goud);
+  pointer-events: none;
+  animation: tikHintPuls 1.2s ease-in-out infinite;
+}
+
+@keyframes tikHintPuls {
+  0%, 100% { opacity: 0.4; }
+  50%       { opacity: 1; }
+}
+
 /* Status label */
 .ar-status {
   position: absolute;
