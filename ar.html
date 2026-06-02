@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="ar.css">
   <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
   <script src="https://raw.githack.com/AR-js-org/AR.js/3.4.7/aframe/build/aframe-ar.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aframe-troika-text/dist/aframe-troika-text.min.js"></script>
 </head>
 <body>
 
@@ -52,7 +53,7 @@
         light="type: point; color: #e6c200; intensity: 5; distance: 3; decay: 2"
         position="-2 0 -6">
       </a-entity>
-      <a-text value="THING" position="0 -1 1" align="center" color="#e6c200" width="1.5" font-size="20" anchor="center" baseline="center" letter-spacing="2" opacity="0.9"></a-text>
+      <a-entity troika-text="value: THING; font: https://cdn.jsdelivr.net/npm/@fontsource/cinzel/files/cinzel-latin-400-normal.woff; fontSize: 0.15; color: #e6c200; anchorX: center; anchorY: middle; letterSpacing: 0.05; fillOpacity: 0.9;" position="0 -1 1"></a-entity>
     </a-entity>
 
     <!-- Crystal Ball -->
@@ -75,7 +76,8 @@
         light="type: point; color: #e6c200; intensity: 5; distance: 3; decay: 2"
         position="0 -2.5 -9.5">
       </a-entity>
-      <a-text value="CRYSTAL BALL" position="-1.1 -1.7 1.1" align="center" color="#e6c200" width="1.5" font-size="18" anchor="center" baseline="center" letter-spacing="2" opacity="0.9"></a-text>
+      <a-entity troika-text="value: CRYSTAL BALL; font: https://cdn.jsdelivr.net/npm/@fontsource/cinzel/files/cinzel-latin-400-normal.woff; fontSize: 0.15; color: #e6c200; anchorX: center; anchorY: middle; letterSpacing: 0.05; fillOpacity: 0.9;" position="-1.1 -1.7 1.1"></a-entity>
+      <a-entity troika-text="value: MAGIC OBJECTS\n         ARCHIVE; font: https://cdn.jsdelivr.net/npm/@fontsource/nosifer/files/nosifer-latin-400-normal.woff; fontSize: 0.2; color: red; anchorX: center; anchorY: middle; letterSpacing: 0.05; fillOpacity: 0.5; maxWidth: 6;" position="-2.4 2.2 -10"></a-entity>
     </a-entity>
 
     <!-- Basement -->
@@ -98,6 +100,8 @@
         light="type: point; color: blue; intensity: 0.4; distance: 10; decay: 2"
         position="0 0 -20">
       </a-entity>
+
+      
       
     </a-entity>
 
