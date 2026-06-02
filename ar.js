@@ -29,7 +29,6 @@ var objecten = [
   }
 ];
 
-// Kleine debounce zodat het paneel niet flikkert bij het langs bewegen
 var toonTimer = null;
 
 // iOS: vraag gyroscoop permissie
@@ -52,15 +51,25 @@ window.addEventListener('load', function() {
   }
 });
 
-// Luister naar raycaster events op de camera (werkt op iOS)
 document.querySelector('a-scene').addEventListener('loaded', function() {
   var camera = document.querySelector('[camera]');
 
+  // raycaster-intersection vuurt als de raycaster een .clickable element raakt
   camera.addEventListener('raycaster-intersection', function(evt) {
     var geraakt = evt.detail.els[0];
-    var objectId = geraakt.id === 'obj-thing' ? 'thing' : 'crystal-ball';
 
-    // Wacht 300ms voor tonen – voorkomt flikkering bij snel bewegen
+    // Loop omhoog in de DOM om de parent object (#obj-thing of #obj-crystal) te vinden
+    var objectId = null;
+    var el = geraakt;
+    while (el) {
+      if (el.id === 'obj-thing')   { objectId = 'thing'; break; }
+      if (el.id === 'obj-crystal') { objectId = 'crystal-ball'; break; }
+      el = el.parentElement;
+    }
+
+    if (!objectId) return;
+
+    // 300ms debounce – voorkomt flikkering bij snel bewegen
     clearTimeout(toonTimer);
     toonTimer = setTimeout(function() {
       toonPaneel(objectId);
@@ -70,7 +79,6 @@ document.querySelector('a-scene').addEventListener('loaded', function() {
   camera.addEventListener('raycaster-intersection-cleared', function() {
     clearTimeout(toonTimer);
     // Paneel blijft open zodat de gebruiker het kan lezen
-    // Sluit alleen via de X knop
   });
 
   // Object meegegeven via URL (?object=thing)
@@ -88,7 +96,7 @@ function toonPaneel(objectId) {
   }
   if (!obj) return;
 
-  // Niet opnieuw opbouwen als dit object al open is
+  // Niet opnieuw opbouwen als dit object al open staat
   if (document.getElementById('ar-paneel').dataset.huidig === objectId) return;
 
   document.getElementById('ar-instructie').style.display = 'none';
