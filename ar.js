@@ -56,6 +56,10 @@ window.addEventListener('load', function() {
 });
 
 document.querySelector('a-scene').addEventListener('loaded', function() {
+  var laadScherm = document.getElementById('ar-laad-scherm');
+  laadScherm.classList.add('verborgen');
+  setTimeout(function() { laadScherm.style.display = 'none'; }, 700);
+
   var camera = document.querySelector('[camera]');
 
   // raycaster-intersection vuurt als de raycaster een .clickable element raakt
