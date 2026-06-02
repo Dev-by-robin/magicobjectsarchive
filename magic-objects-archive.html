@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Magic Objects Archive</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nosifer&family=Cinzel:wght@400;600&family=Cinzel+Decorative:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Navigatie -->
+<nav>
+  <div class="nav-logo">MAGIC OBJECTS ARCHIVE</div>
+  <div class="nav-knoppen">
+    <button class="nav-knop actief" onclick="showPage('home')">Home</button>
+    <a href="ar.html" class="nav-knop">AR</a>
+  </div>
+</nav>
+
+<!-- Homepage -->
+<div id="pagina-home" class="pagina actief">
+
+  <div class="hero">
+    <h1 class="hero-titel">MAGIC<br>OBJECTS<br>ARCHIVE</h1>
+    <p class="hero-tekst">Een digitaal archief van magische en gevaarlijke objecten.</p>
+    <a href="ar.html" class="knop-rood">✦ ONTDEK AR</a>
+  </div>
+
+  <div class="filter-balk">
+    <span class="filter-label">Filter</span>
+    <select class="filter-select" id="filter-risico" onchange="filterToepassen()">
+      <option value="">Risico-level ▾</option>
+      <option value="hoog">Hoog</option>
+      <option value="medium">Medium</option>
+      <option value="laag">Laag</option>
+    </select>
+    <select class="filter-select" id="filter-herkomst" onchange="filterToepassen()">
+      <option value="">Herkomst ▾</option>
+      <option value="onbekend">Onbekend</option>
+      <option value="nevermore">Nevermore Academy</option>
+      <option value="addams">Addams Familie</option>
+    </select>
+    <select class="filter-select" id="filter-verboden" onchange="filterToepassen()">
+      <option value="">Verboden ▾</option>
+      <option value="ja">Verboden</option>
+      <option value="nee">Toegestaan</option>
+    </select>
+    <button class="filter-reset" onclick="filterResetten()" title="Reset filters">↺</button>
+  </div>
+
+  <div class="objecten-lijst" id="objecten-lijst">
+    <!-- Wordt ingeladen via JavaScript -->
+  </div>
+
+</div>
+
+<!-- Detail pagina -->
+<div id="pagina-detail" class="pagina">
+  <button class="terug-knop" onclick="showPage('home')">← TERUG</button>
+  <div id="detail-inhoud"></div>
+</div>
+
+
+
+<!-- Fout modal -->
+<div class="modal-achtergrond" id="fout-modal" onclick="modalSluiten(event)">
+  <div class="modal-box">
+    <div class="modal-hoofd">
+      <span class="modal-hoofd-tekst">⚠ Er is een fout opgetreden!</span>
+      <button class="modal-sluit" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-inhoud" id="modal-tekst">
+      <strong>AR kan niet geladen worden, omdat er geen cameratoesteming is.</strong>
+      Ga naar instellingen en zet cameratoesteming aan!
+    </div>
+    <div class="modal-footer">
+      <button class="modal-sluit-knop" onclick="closeModal()">Sluiten</button>
+    </div>
+  </div>
+</div>
+
+
+<script src="script.js"></script>
+</body>
+</html>

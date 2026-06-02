@@ -1,0 +1,326 @@
+:root {
+  --zwart: #0D0D0D;
+  --donkergrijs: #1A1A1A;
+  --tekst: #D9D9D9;
+  --tekst-zacht: #9A9A9A;
+  --rood: #E63232;
+  --paars: #9561D0;
+  --goud: #E6C200;
+  --rand: #2A2A2A;
+}
+
+/* Navigatie */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 56px;
+  background-color: rgba(13, 13, 13, 0.95);
+  border-bottom: 1px solid var(--rand);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  z-index: 20;
+}
+
+.nav-logo {
+  font-family: 'Nosifer', cursive;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fff;
+  -webkit-text-stroke: 0.5px var(--rood);
+  text-shadow: 0 0 12px rgba(230, 50, 50, 0.35);
+}
+
+.nav-knoppen {
+  display: flex;
+  gap: 6px;
+}
+
+.nav-knop {
+  background: none;
+  border: 1px solid var(--rand);
+  color: var(--tekst-zacht);
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  padding: 6px 14px;
+  cursor: pointer;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.nav-knop:hover,
+.nav-knop.actief {
+  border-color: var(--rood);
+  color: var(--tekst);
+  background-color: rgba(230, 50, 50, 0.08);
+}
+
+/* A-scene begint onder de navbar */
+a-scene {
+  width: 100%;
+  height: calc(100vh - 56px);
+  margin-top: 56px;
+  display: block;
+}
+
+/* Overlay begint onder de navbar */
+#ar-overlay {
+  top: 56px;
+}
+
+.hoek.lo  { top: 16px; }
+.hoek.ro  { top: 16px; }
+.ar-status { top: 24px; }
+.ar-instructie { top: calc(50% + 28px); }
+.ar-crosshair  { top: calc(50% + 28px); }
+
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  overflow: hidden;
+  background: #000;
+  font-family: 'Cinzel', serif;
+}
+
+a-scene {
+  width: 100%;
+  height: 100vh;
+  display: block;
+}
+
+/* Overlay bovenop de camera */
+#ar-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 10;
+  pointer-events: none;
+}
+
+#ar-overlay .terug-knop,
+#ar-overlay .ar-paneel,
+#ar-overlay .ar-status {
+  pointer-events: auto;
+}
+
+/* Status label */
+.ar-status {
+  position: absolute;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(13,13,13,0.8);
+  border: 1px solid rgba(230,50,50,0.3);
+  padding: 4px 14px;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--rood);
+  white-space: nowrap;
+}
+
+/* Hoekjes */
+.hoek {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+}
+
+.hoek.lo  { top: 16px; left: 16px;    border-top: 2px solid rgba(230,50,50,0.7); border-left: 2px solid rgba(230,50,50,0.7); }
+.hoek.ro  { top: 16px; right: 16px;   border-top: 2px solid rgba(230,50,50,0.7); border-right: 2px solid rgba(230,50,50,0.7); }
+.hoek.lo2 { bottom: 16px; left: 16px; border-bottom: 2px solid rgba(230,50,50,0.7); border-left: 2px solid rgba(230,50,50,0.7); }
+.hoek.ro2 { bottom: 16px; right: 16px;border-bottom: 2px solid rgba(230,50,50,0.7); border-right: 2px solid rgba(230,50,50,0.7); }
+
+/* Crosshair */
+.ar-crosshair {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px; height: 20px;
+  pointer-events: none;
+}
+
+.ar-crosshair::before,
+.ar-crosshair::after {
+  content: '';
+  position: absolute;
+  background-color: rgba(230, 50, 50, 0.7);
+}
+
+.ar-crosshair::before {
+  width: 2px; height: 100%;
+  left: 50%; transform: translateX(-50%);
+}
+
+.ar-crosshair::after {
+  width: 100%; height: 2px;
+  top: 50%; transform: translateY(-50%);
+}
+
+/* Instructie */
+.ar-instructie {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(13,13,13,0.75);
+  border: 1px solid var(--rand);
+  padding: 14px 20px;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--tekst-zacht);
+  text-align: center;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.ar-instructie span {
+  display: block;
+  font-size: 8px;
+  margin-top: 6px;
+  color: var(--paars);
+}
+
+/* Info paneel onderaan */
+.ar-paneel {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  background-color: rgba(13,13,13,0.93);
+  border-top: 1px solid var(--rand);
+  padding: 16px;
+  max-height: 55%;
+  overflow-y: auto;
+}
+
+.ar-paneel-sluit {
+  position: absolute;
+  top: 12px; right: 12px;
+  background: none;
+  border: 1px solid var(--rand);
+  color: var(--tekst-zacht);
+  font-size: 14px;
+  width: 28px; height: 28px;
+  cursor: pointer;
+  font-family: 'Cinzel', serif;
+  pointer-events: auto;
+}
+
+.ar-paneel-sluit:hover {
+  border-color: var(--rood);
+  color: var(--rood);
+}
+
+.ar-object-naam {
+  font-family: 'Nosifer', cursive;
+  font-size: 20px;
+  color: var(--tekst);
+  text-shadow: 0 0 15px rgba(230,50,50,0.4);
+}
+
+.ar-object-sub {
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--tekst-zacht);
+  margin-top: 2px;
+}
+
+.risico-badge {
+  display: inline-block;
+  padding: 3px 8px;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 600;
+  border: 1px solid;
+}
+
+.risico-hoog  { background-color: rgba(230,50,50,0.15); color: #E63232; border-color: rgba(230,50,50,0.3); }
+.risico-medium{ background-color: rgba(230,194,0,0.15); color: #E6C200; border-color: rgba(230,194,0,0.3); }
+.risico-laag  { background-color: rgba(149,97,208,0.15); color: #9561D0; border-color: rgba(149,97,208,0.3); }
+
+.ar-beschrijving {
+  font-size: 11px;
+  color: var(--tekst-zacht);
+  line-height: 1.7;
+  margin-top: 10px;
+}
+
+.ar-detail-blok {
+  margin-top: 12px;
+  border-top: 1px solid var(--rand);
+  padding-top: 10px;
+}
+
+.ar-detail-label {
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--paars);
+  margin-bottom: 4px;
+}
+
+.ar-detail-waarde {
+  font-size: 11px;
+  color: var(--tekst-zacht);
+}
+
+.ar-incident-blok {
+  background-color: rgba(26,26,26,0.9);
+  border-left: 2px solid var(--goud);
+  padding: 10px 12px;
+  margin-top: 8px;
+}
+
+.ar-incident-label {
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--goud);
+  margin-bottom: 4px;
+}
+
+.ar-incident-tekst {
+  font-size: 10px;
+  color: var(--tekst-zacht);
+  line-height: 1.6;
+}
+
+/* iOS orientatie permissie knop */
+#orientatie-permissie {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(13,13,13,0.92);
+  border: 1px solid var(--rood);
+  padding: 24px 28px;
+  text-align: center;
+  z-index: 30;
+  pointer-events: auto;
+  flex-direction: column;
+  gap: 14px;
+}
+
+#orientatie-permissie p {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--tekst-zacht);
+}
+
+#orientatie-permissie button {
+  background-color: var(--rood);
+  border: none;
+  color: #fff;
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  cursor: pointer;
+}
