@@ -1,4 +1,4 @@
-// Data van de objecten
+// Objectdata
   const objecten = [
     {
       id: 'thing',
@@ -51,7 +51,7 @@
 
   // Pagina's wisselen
   function showPage(pagina) {
-    // AR is een aparte pagina
+    // AR is aparte pagina
     if (pagina === 'ar') {
       window.location.href = 'ar.html';
       return;
@@ -91,6 +91,7 @@
       return;
     }
 
+    // HTML van gefilterde objecten
     var html = '';
     for (var i = 0; i < gefilterd.length; i++) {
       var obj = gefilterd[i];

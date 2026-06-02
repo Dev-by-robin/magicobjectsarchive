@@ -132,7 +132,7 @@ nav {
   background-color: rgba(230, 50, 50, 0.08);
 }
 
-/* A-scene begint onder de navbar */
+/* A-scene onder de navbar */
 a-scene {
   width: 100%;
   height: calc(100vh - 56px);
@@ -140,7 +140,7 @@ a-scene {
   display: block;
 }
 
-/* Overlay begint onder de navbar */
+/* Overlay onder de navbar */
 #ar-overlay {
   top: 56px;
 }

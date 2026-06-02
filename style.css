@@ -542,18 +542,6 @@ nav {
   pointer-events: auto;
 }
 
-/* Hoekjes */
-.hoek {
-  position: absolute;
-  width: 28px;
-  height: 28px;
-}
-
-.hoek.lo { top: 70px; left: 16px; border-top: 2px solid rgba(230,50,50,0.7); border-left: 2px solid rgba(230,50,50,0.7); }
-.hoek.ro { top: 70px; right: 16px; border-top: 2px solid rgba(230,50,50,0.7); border-right: 2px solid rgba(230,50,50,0.7); }
-.hoek.lo2 { bottom: 16px; left: 16px; border-bottom: 2px solid rgba(230,50,50,0.7); border-left: 2px solid rgba(230,50,50,0.7); }
-.hoek.ro2 { bottom: 16px; right: 16px; border-bottom: 2px solid rgba(230,50,50,0.7); border-right: 2px solid rgba(230,50,50,0.7); }
-
 /* AR status label */
 .ar-status {
   position: absolute;

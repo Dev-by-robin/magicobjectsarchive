@@ -76,7 +76,7 @@ function beweeg() {
   camEl.setAttribute('position', pos);
 }
 
-// iOS: vraag gyroscoop permissie
+// iOS
 function vraagOrientatie() {
   DeviceOrientationEvent.requestPermission()
     .then(function(staat) {
@@ -161,6 +161,7 @@ function toonPaneel(objectId) {
     incidentHtml += '</div>';
   }
 
+  // Paneel vullen met objectdata
   var paneel = document.getElementById('ar-paneel');
   paneel.dataset.huidig = objectId;
   paneel.style.display = 'block';
