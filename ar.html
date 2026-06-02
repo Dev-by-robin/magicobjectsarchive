@@ -73,24 +73,20 @@
       camera
       look-controls="magicWindowTrackingEnabled: true; touchEnabled: false; mouseEnabled: false;"
       raycaster="objects: .clickable; far: 100; interval: 100;">
-      <a-entity
-        cursor="fuse: false"
-        position="0 0 -1"
-        geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
-        material="color: #E63232; shader: flat">
-      </a-entity>
+        <!-- <a-entity
+          cursor="fuse: false"
+          position="0 0 -1"
+          geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
+          material="color: #E63232; shader: flat">
+        </a-entity> -->
     </a-entity>
 
   </a-scene>
 
   <!-- Overlay -->
   <div id="ar-overlay">
-    <div class="hoek lo"></div>
-    <div class="hoek ro"></div>
-    <div class="hoek lo2"></div>
-    <div class="hoek ro2"></div>
 
-    <div class="ar-status">● AR ACTIEF</div>
+    <div class="ar-status">AR ACTIEF</div>
     <div class="ar-crosshair"></div>
 
     <div id="orientatie-permissie" style="display:none;">
@@ -100,7 +96,7 @@
 
     <div class="ar-instructie" id="ar-instructie">
       Richt op een object
-      <span>Kijk naar Thing of Crystal Ball</span>
+      <span>En bekijk alle details</span>
     </div>
 
     <div class="ar-paneel" id="ar-paneel" style="display:none;"></div>

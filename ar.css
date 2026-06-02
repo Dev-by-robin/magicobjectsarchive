@@ -72,8 +72,6 @@ a-scene {
   top: 56px;
 }
 
-.hoek.lo  { top: 16px; }
-.hoek.ro  { top: 16px; }
 .ar-status { top: 24px; }
 .ar-instructie { top: calc(50% + 28px); }
 .ar-crosshair  { top: calc(50% + 28px); }
@@ -123,18 +121,6 @@ a-scene {
   white-space: nowrap;
 }
 
-/* Hoekjes */
-.hoek {
-  position: absolute;
-  width: 28px;
-  height: 28px;
-}
-
-.hoek.lo  { top: 16px; left: 16px;    border-top: 2px solid rgba(230,50,50,0.7); border-left: 2px solid rgba(230,50,50,0.7); }
-.hoek.ro  { top: 16px; right: 16px;   border-top: 2px solid rgba(230,50,50,0.7); border-right: 2px solid rgba(230,50,50,0.7); }
-.hoek.lo2 { bottom: 16px; left: 16px; border-bottom: 2px solid rgba(230,50,50,0.7); border-left: 2px solid rgba(230,50,50,0.7); }
-.hoek.ro2 { bottom: 16px; right: 16px;border-bottom: 2px solid rgba(230,50,50,0.7); border-right: 2px solid rgba(230,50,50,0.7); }
-
 /* Crosshair */
 .ar-crosshair {
   position: absolute;
@@ -164,7 +150,7 @@ a-scene {
 /* Instructie */
 .ar-instructie {
   position: absolute;
-  top: 50%; left: 50%;
+  top: 20%; left: 50%;
   transform: translate(-50%, -50%);
   background-color: rgba(13,13,13,0.75);
   border: 1px solid var(--rand);
