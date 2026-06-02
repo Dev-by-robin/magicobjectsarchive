@@ -276,6 +276,29 @@ a-scene {
   line-height: 1.6;
 }
 
+/* Waarschuwing blok in AR paneel */
+.ar-waarschuwing-blok {
+  background-color: rgba(42, 10, 10, 0.9);
+  border-left: 3px solid var(--rood);
+  padding: 10px 12px;
+  margin-top: 12px;
+}
+
+.ar-waarschuwing-titel {
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  color: var(--rood);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+.ar-waarschuwing-tekst {
+  font-size: 10px;
+  color: #cc8080;
+  line-height: 1.6;
+}
+
 /* iOS orientatie permissie knop */
 #orientatie-permissie {
   position: absolute;

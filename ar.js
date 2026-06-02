@@ -11,7 +11,9 @@ var objecten = [
         titel: 'Incidenten Log #001',
         tekst: 'Thing werd tijdelijk opnieuw vastgemaakt aan zijn oorspronkelijke eigenaar Isaac Night. Tijdens dit incident viel alle communicatie met het object volledig weg. Uiteindelijk wist Thing zichzelf los te maken en Isaac Night uit te schakelen door zijn mechanische hart te verwijderen.'
       }
-    ]
+    ],
+    verboden: 'ja',
+    waarschuwing: 'Het is nog niet volledig onderzocht of herinneringen of bewustzijn van Isaac Night nog aanwezig zijn binnen het object.'
   },
   {
     id: 'crystal-ball',
@@ -25,7 +27,9 @@ var objecten = [
         titel: 'Incidenten Log #001',
         tekst: 'Tijdens haar eerste avond op Nevermore Academy gebruikte Wednesday de Crystal Ball om haar ouders te vertellen over meerdere gevaarlijke gebeurtenissen, waaronder twee bijna-doodervaringen, een monster en de mogelijkheid dat zij verantwoordelijk zou zijn voor de vernietiging van Nevermore.'
       }
-    ]
+    ],
+    verboden: 'nee',
+    waarschuwing: 'Gebruik van de Crystal Ball tijdens psychische uitputting wordt afgeraden. Dit kan leiden tot aanvallen en een verdere verslechtering van de mentale toestand van de gebruiker.'
   }
 ];
 
@@ -127,7 +131,15 @@ function toonPaneel(objectId) {
     + '<div class="ar-detail-label">Magische Eigenschappen</div>'
     + '<div class="ar-detail-waarde">' + obj.magischeEigenschappen + '</div>'
     + '</div>'
-    + '<div class="ar-detail-blok">' + incidentHtml + '</div>';
+    + '<div class="ar-detail-blok">' + incidentHtml + '</div>'
+    + '<div class="ar-detail-blok">'
+    + '<div class="ar-detail-label">Verboden</div>'
+    + '<div class="ar-detail-waarde">' + obj.verboden.charAt(0).toUpperCase() + obj.verboden.slice(1) + '</div>'
+    + '</div>'
+    + '<div class="ar-waarschuwing-blok">'
+    + '<div class="ar-waarschuwing-titel">⚠ Waarschuwing</div>'
+    + '<p class="ar-waarschuwing-tekst">' + obj.waarschuwing + '</p>'
+    + '</div>';
 }
 
 function sluitPaneel() {

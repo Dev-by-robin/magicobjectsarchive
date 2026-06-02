@@ -166,7 +166,7 @@
     html += '<p class="waarschuwing-tekst">' + obj.waarschuwing + '</p>';
     html += '</div>';
     html += '</div>';
-    html += '<button class="knop-ar" onclick="arOpenenMet(\'' + obj.id + '\')">▶ BEKIJK IN AR</button>';
+    html += '<button class="knop-ar" onclick="arOpenenMet(\'' + obj.id + '\')">BEKIJK IN AR</button>';
     html += '</div>';
 
     document.getElementById('detail-inhoud').innerHTML = html;
