@@ -174,8 +174,54 @@ a-scene {
 
 #ar-overlay .ar-terug-knop,
 #ar-overlay .ar-paneel,
-#ar-overlay .ar-status {
+#ar-overlay .ar-status,
+#ar-overlay .ar-beweging {
   pointer-events: auto;
+}
+
+/* D-pad bewegingsknoppen */
+.ar-beweging {
+  position: absolute;
+  bottom: 24px;
+  right: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  z-index: 15;
+}
+
+.beweging-rij {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.beweging-midden {
+  width: 40px;
+  height: 40px;
+}
+
+.beweging-knop {
+  width: 40px;
+  height: 40px;
+  background: rgba(13, 13, 13, 0.85);
+  border: 1px solid var(--rand);
+  color: var(--tekst-zacht);
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none;
+}
+
+.beweging-knop:active {
+  border-color: var(--rood);
+  color: var(--tekst);
+  background: rgba(230, 50, 50, 0.15);
 }
 
 .ar-terug-knop {

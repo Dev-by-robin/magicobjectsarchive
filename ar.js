@@ -35,6 +35,47 @@ var objecten = [
 
 var toonTimer = null;
 
+// Bewegingsknoppen
+var beweging = {};
+var bewegingInterval = null;
+var bewegingSnelheid = 0.08;
+
+function startBeweging(richting) {
+  beweging[richting] = true;
+  if (!bewegingInterval) {
+    bewegingInterval = setInterval(beweeg, 16);
+  }
+}
+
+function stopBeweging(richting) {
+  delete beweging[richting];
+  if (Object.keys(beweging).length === 0) {
+    clearInterval(bewegingInterval);
+    bewegingInterval = null;
+  }
+}
+
+function beweeg() {
+  var camEl = document.querySelector('[camera]');
+  if (!camEl) return;
+
+  var pos = camEl.getAttribute('position');
+  var voorwaarts = new THREE.Vector3();
+  camEl.object3D.getWorldDirection(voorwaarts);
+  voorwaarts.y = 0;
+  voorwaarts.normalize();
+
+  var rechts = new THREE.Vector3();
+  rechts.crossVectors(voorwaarts, new THREE.Vector3(0, 1, 0)).normalize();
+
+  if (beweging.voor)   { pos.x -= voorwaarts.x * bewegingSnelheid; pos.z -= voorwaarts.z * bewegingSnelheid; }
+  if (beweging.achter) { pos.x += voorwaarts.x * bewegingSnelheid; pos.z += voorwaarts.z * bewegingSnelheid; }
+  if (beweging.links)  { pos.x += rechts.x * bewegingSnelheid; pos.z += rechts.z * bewegingSnelheid; }
+  if (beweging.rechts) { pos.x -= rechts.x * bewegingSnelheid; pos.z -= rechts.z * bewegingSnelheid; }
+
+  camEl.setAttribute('position', pos);
+}
+
 // iOS: vraag gyroscoop permissie
 function vraagOrientatie() {
   DeviceOrientationEvent.requestPermission()

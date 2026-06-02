@@ -152,6 +152,24 @@
     </div>
 
     <div class="ar-paneel" id="ar-paneel" style="display:none;"></div>
+
+    <div class="ar-beweging">
+      <button class="beweging-knop beweging-voor"
+        ontouchstart="startBeweging('voor')" ontouchend="stopBeweging('voor')"
+        onmousedown="startBeweging('voor')" onmouseup="stopBeweging('voor')" onmouseleave="stopBeweging('voor')">↑</button>
+      <div class="beweging-rij">
+        <button class="beweging-knop"
+          ontouchstart="startBeweging('links')" ontouchend="stopBeweging('links')"
+          onmousedown="startBeweging('links')" onmouseup="stopBeweging('links')" onmouseleave="stopBeweging('links')">←</button>
+        <div class="beweging-midden"></div>
+        <button class="beweging-knop"
+          ontouchstart="startBeweging('rechts')" ontouchend="stopBeweging('rechts')"
+          onmousedown="startBeweging('rechts')" onmouseup="stopBeweging('rechts')" onmouseleave="stopBeweging('rechts')">→</button>
+      </div>
+      <button class="beweging-knop beweging-achter"
+        ontouchstart="startBeweging('achter')" ontouchend="stopBeweging('achter')"
+        onmousedown="startBeweging('achter')" onmouseup="stopBeweging('achter')" onmouseleave="stopBeweging('achter')">↓</button>
+    </div>
   </div>
 
   <script src="ar.js"></script>
