@@ -1,4 +1,3 @@
-// Objectdata
 var objecten = [
   {
     id: 'thing',
@@ -30,7 +29,10 @@ var objecten = [
   }
 ];
 
-// iOS 13+: vraag permissie voor de bewegingssensor (gyroscoop)
+// Kleine debounce zodat het paneel niet flikkert bij het langs bewegen
+var toonTimer = null;
+
+// iOS: vraag gyroscoop permissie
 function vraagOrientatie() {
   DeviceOrientationEvent.requestPermission()
     .then(function(staat) {
@@ -43,7 +45,6 @@ function vraagOrientatie() {
     });
 }
 
-// Controleer of iOS permissie nodig is
 window.addEventListener('load', function() {
   if (typeof DeviceOrientationEvent !== 'undefined' &&
       typeof DeviceOrientationEvent.requestPermission === 'function') {
@@ -51,15 +52,25 @@ window.addEventListener('load', function() {
   }
 });
 
-// Wacht tot de A-Frame scene geladen is
+// Luister naar raycaster events op de camera (werkt op iOS)
 document.querySelector('a-scene').addEventListener('loaded', function() {
+  var camera = document.querySelector('[camera]');
 
-  document.getElementById('obj-thing').addEventListener('click', function() {
-    toonPaneel('thing');
+  camera.addEventListener('raycaster-intersection', function(evt) {
+    var geraakt = evt.detail.els[0];
+    var objectId = geraakt.id === 'obj-thing' ? 'thing' : 'crystal-ball';
+
+    // Wacht 300ms voor tonen – voorkomt flikkering bij snel bewegen
+    clearTimeout(toonTimer);
+    toonTimer = setTimeout(function() {
+      toonPaneel(objectId);
+    }, 300);
   });
 
-  document.getElementById('obj-crystal').addEventListener('click', function() {
-    toonPaneel('crystal-ball');
+  camera.addEventListener('raycaster-intersection-cleared', function() {
+    clearTimeout(toonTimer);
+    // Paneel blijft open zodat de gebruiker het kan lezen
+    // Sluit alleen via de X knop
   });
 
   // Object meegegeven via URL (?object=thing)
@@ -68,16 +79,17 @@ document.querySelector('a-scene').addEventListener('loaded', function() {
   if (objectParam) {
     toonPaneel(objectParam);
   }
-
 });
 
-// Info paneel tonen
 function toonPaneel(objectId) {
   var obj = null;
   for (var i = 0; i < objecten.length; i++) {
     if (objecten[i].id === objectId) { obj = objecten[i]; break; }
   }
   if (!obj) return;
+
+  // Niet opnieuw opbouwen als dit object al open is
+  if (document.getElementById('ar-paneel').dataset.huidig === objectId) return;
 
   document.getElementById('ar-instructie').style.display = 'none';
 
@@ -91,6 +103,7 @@ function toonPaneel(objectId) {
   }
 
   var paneel = document.getElementById('ar-paneel');
+  paneel.dataset.huidig = objectId;
   paneel.style.display = 'block';
   paneel.innerHTML =
     '<button class="ar-paneel-sluit" onclick="sluitPaneel()">✕</button>'
@@ -109,8 +122,9 @@ function toonPaneel(objectId) {
     + '<div class="ar-detail-blok">' + incidentHtml + '</div>';
 }
 
-// Paneel sluiten
 function sluitPaneel() {
-  document.getElementById('ar-paneel').style.display = 'none';
+  var paneel = document.getElementById('ar-paneel');
+  paneel.style.display = 'none';
+  paneel.dataset.huidig = '';
   document.getElementById('ar-instructie').style.display = 'block';
 }
