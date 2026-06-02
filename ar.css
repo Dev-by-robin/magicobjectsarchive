@@ -172,10 +172,31 @@ a-scene {
   pointer-events: none;
 }
 
-#ar-overlay .terug-knop,
+#ar-overlay .ar-terug-knop,
 #ar-overlay .ar-paneel,
 #ar-overlay .ar-status {
   pointer-events: auto;
+}
+
+.ar-terug-knop {
+  position: absolute;
+  top: 70px;
+  left: 16px;
+  background: rgba(13, 13, 13, 0.8);
+  border: 1px solid var(--rand);
+  color: var(--tekst-zacht);
+  font-size: 18px;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ar-terug-knop:hover {
+  border-color: var(--rood);
+  color: var(--tekst);
 }
 
 /* Status label */
@@ -228,7 +249,7 @@ a-scene {
   background-color: rgba(13,13,13,0.75);
   border: 1px solid var(--rand);
   padding: 14px 20px;
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--tekst-zacht);
@@ -239,7 +260,7 @@ a-scene {
 
 .ar-instructie span {
   display: block;
-  font-size: 8px;
+  font-size: 10px;
   margin-top: 6px;
   color: var(--paars);
 }
