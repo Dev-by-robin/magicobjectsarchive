@@ -149,6 +149,7 @@ function toonPaneel(objectId) {
   if (document.getElementById('ar-paneel').dataset.huidig === objectId) return;
 
   document.getElementById('ar-instructie').style.display = 'none';
+  document.querySelector('.ar-beweging').style.display = 'none';
 
   var incidentHtml = '';
   for (var i = 0; i < obj.incidents.length; i++) {
@@ -192,4 +193,5 @@ function sluitPaneel() {
   paneel.style.display = 'none';
   paneel.dataset.huidig = '';
   document.getElementById('ar-instructie').style.display = 'block';
+  document.querySelector('.ar-beweging').style.display = 'flex';
 }
